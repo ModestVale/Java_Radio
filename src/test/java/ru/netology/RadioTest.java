@@ -7,13 +7,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RadioTest {
     @Test
     void stationNumber_setValidValue() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(15);
         radio.next();
         assertEquals(1, radio.getNumberStation());
-        radio.setNumberStation(5);
-        assertEquals(5, radio.getNumberStation());
+        radio.setNumberStation(14);
+        assertEquals(14, radio.getNumberStation());
         radio.prev();
-        assertEquals(4, radio.getNumberStation());
+        assertEquals(13, radio.getNumberStation());
     }
 
     @Test
@@ -46,9 +46,9 @@ public class RadioTest {
         radio.decreaseVolume();
         assertEquals(0, radio.getVolume());
 
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 101; i++) {
             radio.increaseVolume();
         }
-        assertEquals(10, radio.getVolume());
+        assertEquals(100, radio.getVolume());
     }
 }
